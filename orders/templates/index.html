@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+    {% if user.user %}
+        <h1>Hello {{ user.user }}</h1>
+    {% else %}
+        <h1>Hello</h1>
+    {% endif %}
+    <p>Welcome To Mufaddal's Pizza Zone</p>
+    {% if user is None%}
+        <div>
+            <p>New User? Register Here <a href="{% url 'register' %}">Register</a></p>
+            <p>Already have an Account? <a href="{% url 'login' %}">Login</a></p>
+        </div>
+    {% endif %}
+{% endblock %}

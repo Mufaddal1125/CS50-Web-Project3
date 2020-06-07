@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+{% block head %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'register.css' %}">
+{% endblock %}
+{% block body %}
+
+    <h1>Login to Your Account</h1>
+    <form method="post" action="{% url 'register' %}">
+
+    {% csrf_token %}
+{#        <label>Username: </label><input type="text" name="username" placeholder="Username" maxlength="64">#}
+{#        <label>Password: </label><input type="password" name="password" placeholder="Password">#}
+{#        <label>Email: </label><input type="email" name='email' placeholder="Email">#}
+{#        <label>First Name: </label><input type="text" name="firstname" placeholder="First Name" maxlength="64">#}
+{#        <label>Last Name: </label><input type="text" name="lastname" placeholder="Last Name" maxlength="64">#}
+        {{ form }}
+    <input type="submit" value="Log In">
+    </form>
+    <p>Already have Account<a href="{% url 'login' %}">Login Here</a></p>
+{% endblock %}
